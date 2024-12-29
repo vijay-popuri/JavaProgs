@@ -1,0 +1,26 @@
+package com.ono.basicProgs;
+
+public class MaxOf4Nums
+{
+	public static void main(String[] args) {
+		int a=200,b=30,c=40,d=50;
+		int minOfFtwo;
+		int minOfLTwo;
+		if(a>b) {
+			minOfFtwo=a;
+		}else {
+			minOfFtwo=b;
+		}
+		if(c>d) {
+			minOfLTwo=c;
+		}else {
+			minOfLTwo=d;
+		}
+		if(minOfFtwo>minOfLTwo) {
+			System.out.println(minOfFtwo);
+		}else {
+			System.out.println(minOfLTwo);
+		}
+	}
+
+}
