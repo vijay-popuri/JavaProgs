@@ -1,0 +1,38 @@
+package com.ono.basicProgs;
+
+import java.util.Scanner;
+
+public class SubArrrayProblem {
+	public static void main(String[] args) {
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter no of TestCases");
+		int noOfTestCases = scanner.nextInt();
+		for (int i = 1; i <= noOfTestCases; i++) {
+			System.out.println("Enter the Size of Array>>>>>");
+			int size = scanner.nextInt();
+			int arr1[] = new int[size];
+			int arr2[] = new int[size];
+			for (int j = 1; j <= size; j++) {
+				arr1[i] = scanner.nextInt();
+
+			}
+			for (int j = 1; j <= size; j++) {
+				arr2[i] = scanner.nextInt();
+
+			}
+			System.out.println("*************************************");
+			int count = 0;
+			for (int p = 1; p <= size-1; p++) {
+				if (arr1[p] == arr2[p]) {
+					count++;
+				}
+			}
+			System.out.println("same elements count is " + count);
+		}
+		
+		
+
+	}
+
+}

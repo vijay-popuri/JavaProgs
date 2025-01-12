@@ -1,0 +1,61 @@
+package com.ono.basicProgs;
+
+import java.util.*;
+
+public class SubArrayProblem {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter number of Test Cases:");
+        int noOfTestCases = scanner.nextInt();
+
+        for (int t = 0; t < noOfTestCases; t++) {
+            System.out.println("Enter the size of the array:");
+            int size = scanner.nextInt();
+
+            int[] arr1 = new int[size];
+            int[] arr2 = new int[size];
+
+            System.out.println("Enter elements of the first array:");
+            for (int i = 0; i < size; i++) {
+                arr1[i] = scanner.nextInt();
+            }
+
+            System.out.println("Enter elements of the second array:");
+            for (int i = 0; i < size; i++) {
+                arr2[i] = scanner.nextInt();
+            }
+
+            // Find minimum subarray length
+            int minSubArrayLength = findMinSubArrayLength(arr1, arr2);
+            System.out.println("Minimum subarray length to make arrays permutations: " + minSubArrayLength);
+        }
+
+        scanner.close();
+    }
+
+    private static int findMinSubArrayLength(int[] arr1, int[] arr2) {
+        // Use frequency maps to count elements
+        Map<Integer, Integer> freq1 = new HashMap<>();
+        Map<Integer, Integer> freq2 = new HashMap<>();
+
+        for (int num : arr1) {
+            freq1.put(num, freq1.getOrDefault(num, 0) + 1);
+        }
+
+        for (int num : arr2) {
+            freq2.put(num, freq2.getOrDefault(num, 0) + 1);
+        }
+
+        // Calculate mismatches
+        int minSubArrayLength = 0;
+        for (int key : freq1.keySet()) {
+            int count1 = freq1.getOrDefault(key, 0);
+            int count2 = freq2.getOrDefault(key, 0);
+            if (count1 != count2) {
+                minSubArrayLength += Math.abs(count1 - count2);
+            }
+        }
+
+        return minSubArrayLength / 2; // Each mismatch needs one replacement.
+    }
+}

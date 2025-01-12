@@ -1,0 +1,19 @@
+package com.ono.basicProgs;
+
+import java.util.Scanner;
+
+public class SubArrrayProblem {
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		int noOfTestCases = scanner.nextInt();
+		for(int i=1;i<=noOfTestCases;i++) {
+			System.out.println("Enter the Size of Array");
+			int size = scanner.nextInt();
+			for(int j=1;j<=size;j++) {
+				
+			}
+		}
+	}
+
+}
